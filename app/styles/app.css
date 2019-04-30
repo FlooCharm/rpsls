@@ -38,3 +38,15 @@ body {
 
 /* padding */
 .padded { padding: 30px; }
+
+/* colors */
+.gray-light-bg { background: #EBEBEB; }
+.gray-bg { background: #C4C4C4; }
+.gray-dark-bg { background: #5D5D5D; }
+.green-bg { background: #B9FFB1; }
+.yellow-bg { background: #F9FFB1; }
+.red-bg { background: #FFB6B1; }
+.black { color: #000; }
+.gray { color: #EBEBEB; }
+.green { color: #337A2B; }
+.red { color: #7A2B2B; }
