@@ -1,0 +1,21 @@
+@font-face {
+	font-family: 'MarkerFelt';
+	src: url('/fonts/MarkerFelt.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'NanumPen';
+	src: url('/fonts/NanumPen.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.main-font {
+	font-family: 'MarkerFelt';
+}
+
+.secondary-font {
+	font-family: 'NanumPen';
+}
