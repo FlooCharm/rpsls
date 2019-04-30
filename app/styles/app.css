@@ -45,7 +45,6 @@ html, body {
 /* colors */
 .gray-light-bg { background: #EBEBEB; }
 .gray-bg { background: #C4C4C4; }
-.gray-dark-bg { background: #5D5D5D; }
 .green-bg { background: #B9FFB1; }
 .yellow-bg { background: #F9FFB1; }
 .red-bg { background: #FFB6B1; }
@@ -53,3 +52,16 @@ html, body {
 .gray { color: #EBEBEB; }
 .green { color: #337A2B; }
 .red { color: #7A2B2B; }
+
+/* button */
+.btn {
+	background: #5D5D5D;
+	border-radius: 27px;
+	border: none;
+	width: 315px;
+	height: 98px;
+	outline: none;
+}
+.btn:hover {
+	background: #C4C4C4;
+}
