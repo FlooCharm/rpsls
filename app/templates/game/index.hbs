@@ -1,17 +1,6 @@
-<div class="flex row full-height">
-	<div class="flex flex05 column justify-center align-center padded gray-light-bg">
+<div class="flex full-width full-height">
+	<div class="flex flex1 column justify-center align-center padded gray-light-bg">
 		<span class="main-font title">RPSLS</span>
-		<button class="btn secondary-font body white-text" {{action 'createGame'}}>create game</button>
-	</div>
-	<div class="flex flex05 column">
-		<span class="main-font subtitle padded">Games</span>
-		<div class="game-list">	
-			{{#each this.model as |game|}}
-				<GameCard 
-					@game={{game}}
-					@enterGame={{action 'enterGame'}}
-				/>
-			{{/each}}
-		</div>
+		<button class="btn secondary-font body white-text" {{action 'enterGame'}}>enter</button>
 	</div>
 </div>

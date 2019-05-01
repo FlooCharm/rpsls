@@ -40,6 +40,7 @@ a { text-decoration: none; }
 
 /* flex */
 .flex { display: flex; }
+.flex1 { flex: 1; }
 .flex05 { flex: 0.5; }
 .column { flex-direction: column; }
 .row { flex-direction: row; }
