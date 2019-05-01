@@ -1,14 +1,9 @@
-<LinkTo
-	@route='game.detail'
-	@model={{@game.id}}
->
-</LinkTo>
 <div class="card secondary-font body {{this.color}}">
 	<div>
 		#{{@game.code}} | {{ pluralize @game.totalUsers 'player'}}
 	</div>
 	{{#if (not-eq @game.totalUsers 2)}}
-		<div class="clickable" {{action @enterGame @game.id}}>
+		<div class="clickable" {{action @enterGame @game}}>
 			{{fa-icon 'arrow-circle-right'}}
 		</div>
 	{{/if}}

@@ -9,11 +9,19 @@ export default class GameIndexController extends Controller {
 	@action
 	async createGame () {
 		let game = await this.store.createRecord('game').save();
+		await this.store.createRecord('play', {
+			game,
+			user: this.selectedUser.user
+		}).save();
 		this.transitionToRoute('game.detail', game.id);
 	}
 
 	@action
-	enterGame (id) {
-		this.transitionToRoute('game.detail', id);
+	async enterGame (game) {
+		await this.store.createRecord('play', {
+			game,
+			user: this.selectedUser.user
+		}).save();
+		this.transitionToRoute('game.detail', game.id);
 	}
 }
