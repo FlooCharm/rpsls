@@ -125,6 +125,7 @@ a { text-decoration: none; }
 	font-family: 'NanumPen';
 	font-size: 30px;
 	outline: none;
+	border-radius: 20px;
 }
 .ember-basic-dropdown-content, .ember-power-select-search-input {
 	font-family: 'NanumPen';
