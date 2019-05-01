@@ -1,14 +1,14 @@
 <LinkTo
 	@route='game.detail'
-	@model={{this.args.game.id}}
+	@model={{@game.id}}
 >
 </LinkTo>
 <div class="card secondary-font body {{this.color}}">
 	<div>
-		#{{this.args.game.code}} | {{ pluralize this.args.game.totalUsers 'player'}}
+		#{{@game.code}} | {{ pluralize @game.totalUsers 'player'}}
 	</div>
-	{{#if (not-eq this.args.game.totalUsers 2)}}
-		<div {{action this.args.enterGame this.args.game.id}}>
+	{{#if (not-eq @game.totalUsers 2)}}
+		<div {{action @enterGame @game.id}}>
 			{{fa-icon 'arrow-circle-right'}}
 		</div>
 	{{/if}}
