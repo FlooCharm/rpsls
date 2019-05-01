@@ -1,10 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 
-export default class GameGamesController extends Controller {
-	@tracked userId;
-	
+export default class GameGamesController extends Controller {	
 	@action
 	createGame () {
 		alert('game created!');
