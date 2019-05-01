@@ -1,3 +1,8 @@
-<div class="card secondary-font body {{this.color}}">
-	#{{this.args.game.code}} |
-</div>
+<LinkTo
+	@route='game.detail'
+	@model='{{this.args.game.code}}'
+>
+	<div class="card secondary-font body {{this.color}}">
+		#{{this.args.game.code}} |
+	</div>
+</LinkTo>
