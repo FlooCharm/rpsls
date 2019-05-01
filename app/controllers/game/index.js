@@ -1,16 +1,19 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 
 export default class GameIndexController extends Controller {
-	@tracked selectedUser;
+	@service selectedUser;
 
-	get hasMinimumData () {
-		return this.selectedUser;
+	@action
+	async createGame () {
+		let game = await this.store.createRecord('game').save();
+		this.transitionToRoute('game.detail', game.id);
 	}
 
 	@action
-	enterGame () {
-		this.transitionToRoute('game.games', this.selectedUser);
+	enterGame (id) {
+		this.transitionToRoute('game.detail', id);
 	}
 }

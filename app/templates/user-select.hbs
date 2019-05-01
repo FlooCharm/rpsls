@@ -1,0 +1,18 @@
+<div class="flex full-width full-height">
+	<div class="flex flex1 column justify-center align-center padded gray-light-bg">
+		<span class="main-font title">RPSLS</span>
+		<div class="margin-vertical">
+			<PowerSelect
+				@options={{this.model}}
+				@placeholder='Select user'
+				@selected={{this.user}}
+				@onchange={{action (mut this.user)}}
+				@searchField='username'
+				as |player|
+			>
+				{{player.username}}
+			</PowerSelect>
+		</div>
+		<button class="btn secondary-font body white-text" disabled={{not this.hasMinimumData}} {{action 'enterGame'}}>enter</button>
+	</div>
+</div>

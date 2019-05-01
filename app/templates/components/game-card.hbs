@@ -8,7 +8,7 @@
 		#{{@game.code}} | {{ pluralize @game.totalUsers 'player'}}
 	</div>
 	{{#if (not-eq @game.totalUsers 2)}}
-		<div {{action @enterGame @game.id}}>
+		<div class="clickable" {{action @enterGame @game.id}}>
 			{{fa-icon 'arrow-circle-right'}}
 		</div>
 	{{/if}}
