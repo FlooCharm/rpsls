@@ -6,7 +6,7 @@
 	<div class="flex flex05 column">
 		<span class="main-font subtitle padded">Games</span>
 		<div class="game-list">	
-			{{#each this.model as |game|}}
+			{{#each this.model.games as |game|}}
 				<GameCard 
 					@game={{game}}
 					@enterGame={{action 'enterGame'}}

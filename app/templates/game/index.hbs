@@ -13,6 +13,6 @@
 				{{player.username}}
 			</PowerSelect>
 		</div>
-		<button class="btn secondary-font body white-text" {{action 'enterGame'}}>enter</button>
+		<button class="btn secondary-font body white-text" disabled={{not this.hasMinimumData}} {{action 'enterGame'}}>enter</button>
 	</div>
 </div>

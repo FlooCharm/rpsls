@@ -5,8 +5,12 @@ import { tracked } from '@glimmer/tracking';
 export default class GameIndexController extends Controller {
 	@tracked selectedUser;
 
+	get hasMinimumData () {
+		return this.selectedUser;
+	}
+
 	@action
 	enterGame () {
-		alert('entering game!');
+		this.transitionToRoute('game.games', this.selectedUser);
 	}
 }
