@@ -6,4 +6,9 @@ export default class GameIndexController extends Controller {
 	createGame () {
 		alert('game created!');
 	}
+
+	@action
+	enterGame (id) {
+		this.transitionToRoute('game.detail', id);
+	}
 }

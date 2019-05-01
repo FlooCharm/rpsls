@@ -92,6 +92,7 @@ a { text-decoration: none; }
 .card {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	border-radius: 27px;
 	background: #EBEBEB;
 	padding: 30px;

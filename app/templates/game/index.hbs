@@ -9,6 +9,7 @@
 			{{#each this.model as |game|}}
 				<GameCard 
 					@game={{game}}
+					@enterGame={{action 'enterGame'}}
 				/>
 			{{/each}}
 		</div>
