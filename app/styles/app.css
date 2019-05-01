@@ -44,7 +44,6 @@ html, body {
 
 /* colors */
 .gray-light-bg { background: #EBEBEB; }
-.gray-bg { background: #C4C4C4; }
 .green-bg { background: #B9FFB1; }
 .yellow-bg { background: #F9FFB1; }
 .red-bg { background: #FFB6B1; }
@@ -62,6 +61,23 @@ html, body {
 	height: 98px;
 	outline: none;
 }
-.btn:hover {
+.btn:hover { background: #C4C4C4; }
+
+.close-btn {
+	position: fixed;
+	right: 30px;
+	top: 30px;
+}
+/* code tag */
+.code-tag {
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
 	background: #C4C4C4;
+	border-radius: 0 0 40px 40px;
+	width: 400px;
+	height: 100px;
+	color: #000;
+	font-family: 'MarkerFelt';
+	font-size: 70px;
 }
