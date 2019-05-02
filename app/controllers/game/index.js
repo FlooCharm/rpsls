@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 
 export default class GameIndexController extends Controller {
 	@service selectedUser;
+	@tracked showModal;
 
 	@action
 	async createGame () {
@@ -27,8 +28,10 @@ export default class GameIndexController extends Controller {
 
 	@action
 	openModal () {
+		this.showModal = true;
 	}
 	@action
 	closeModal () {
+		this.showModal = false;
 	}
 }

@@ -15,7 +15,7 @@
 		</div>
 	</div>
 </div>
-<div class="float-btn" {{action 'openModal'}}>
+<div class="float-btn clickable" {{action 'openModal'}}>
 	<Icon 
 		@name='question-circle'
 		@prefix='far'
@@ -23,9 +23,11 @@
 	/>
 </div>
 
-<div class="overlay" {{action 'closeModal'}}>
+{{#if this.showModal}}
+	<div class="overlay" {{action 'closeModal'}}>
+	</div> 
 	<div class="modal">
 		<img class="rules" src="/imgs/rules.svg">
 		{{!-- Scissors cuts paper. Paper covers rock. Rock crushes lizard. Lizard poisons Spock. Spock smashes scissors. Scissors decapitates lizard. Lizard eats paper. Paper disproves Spock. Spock vaporizes rock. Rock crushes scissors. --}}
 	</div>
-</div> 
+{{/if}}

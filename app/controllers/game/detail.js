@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 export default class GameDetailController extends Controller {
 	@action
 	selectMove (choice) {
-		this._poll = setInterval(this._pollFunction, 2000);
+		this._poll = setInterval(this._pollFunction, 5000);
 	}
 
 	_pollFunction () {
