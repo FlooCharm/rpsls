@@ -10,42 +10,48 @@
 <div class="flex row full-height">
 	<div class="flex flex05 column justify-center align-center padded gray-light-bg">
 		<div class="flex column">
-			<Icon
-				@class='clickable' 
-				@name='hand-rock'
-				@size='4x'
-				@color='black'
-				@prefix='far'
-			/>
-			<Icon
-				@class='clickable' 
-				@name='hand-paper'
-				@size='4x'
-				@color='black'
-				@prefix='far'
-			/>
-			<Icon
-				@class='clickable' 
-				@name='hand-scissors'
-				@size='4x'
-				@color='black'
-				@prefix='far'
-			/>
-			<Icon
-				@class='clickable' 
-				@name='hand-lizard'
-				@size='4x'
-				@color='black'
-				@prefix='far'
-			/>
-			<Icon
-				@class='clickable' 
-				@name='hand-spock'
-				@size='4x'
-				@color='black'
-				@prefix='far'
-			/>
+			<div class="clickable" {{action 'selectMove' 1}}>
+				<Icon
+					@name='hand-rock'
+					@size='4x'
+					@color='black'
+					@prefix='far'
+				/>
+			</div>
+			<div class="clickable" {{action 'selectMove' 2}}>
+				<Icon
+					@name='hand-paper'
+					@size='4x'
+					@color='black'
+					@prefix='far'
+				/>
+			</div>
+			<div class="clickable" {{action 'selectMove' 3}}>
+				<Icon
+					@name='hand-scissors'
+					@size='4x'
+					@color='black'
+					@prefix='far'
+				/>
+			</div>
+			<div class="clickable" {{action 'selectMove' 4}}>
+				<Icon
+					@name='hand-lizard'
+					@size='4x'
+					@color='black'
+					@prefix='far'
+				/>
+			</div>
+			<div class="clickable" {{action 'selectMove' 5}}>
+				<Icon
+					@name='hand-spock'
+					@size='4x'
+					@color='black'
+					@prefix='far'
+				/>
+			</div>
 		</div>
+		<button class="btn secondary-font body white-text" {{action 'startGame'}}>Start Game</button>
 	</div>
 	<div class="flex flex05 column justify-center align-center padded">
 		<div class="flex column">
