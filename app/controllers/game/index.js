@@ -24,4 +24,11 @@ export default class GameIndexController extends Controller {
 		}).save();
 		this.transitionToRoute('game.detail', game.id);
 	}
+
+	@action
+	openModal () {
+	}
+	@action
+	closeModal () {
+	}
 }

@@ -4,7 +4,9 @@
 	</div>
 	{{#if (not-eq @game.totalUsers 2)}}
 		<div class="clickable" {{action @enterGame @game}}>
-			{{fa-icon 'arrow-circle-right'}}
+			<Icon 
+				@name='arrow-circle-right'
+			/>
 		</div>
 	{{/if}}
 	{{#if (eq @game.status 3)}}

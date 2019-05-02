@@ -81,6 +81,11 @@ a { text-decoration: none; }
 	cursor: default;
 }
 
+.float-btn {
+	position: fixed;
+	bottom: 30px;
+	left: 48%;
+}
 
 .close-btn {
 	position: fixed;
@@ -140,4 +145,29 @@ a { text-decoration: none; }
 .ember-basic-dropdown-content, .ember-power-select-search-input {
 	font-family: 'NanumPen';
 	font-size: 20px;
+}
+
+/* modal */
+.modal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #fff;
+	width: 500px;
+	height: 500px;
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
+}
+.rules { width: 90%; }
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.4);
 }
