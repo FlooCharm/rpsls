@@ -2,7 +2,7 @@
 	<div>
 		#{{@game.code}} | {{ pluralize @game.totalUsers 'player'}}
 	</div>
-	{{#if (not-eq @game.totalUsers 2)}}
+	{{#if (eq @game.status 1)}}
 		<div class="clickable" {{action @enterGame @game}}>
 			<Icon 
 				@name='arrow-circle-right'

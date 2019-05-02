@@ -1,14 +1,17 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default class GameDetailController extends Controller {
+	@service selectedUser;
+
 	@action
 	selectMove (choice) {
-		this._poll = setInterval(this._pollFunction, 5000);
-	}
-
-	_pollFunction () {
-		console.log('cuac')
+		let play = this.model.plays.findBy('id', this.selectedUser.user.id);
+		console.log(play)
+		this._poll = setInterval(() => {
+			
+		}, 5000);
 	}
 
 	@action 
