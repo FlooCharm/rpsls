@@ -121,6 +121,11 @@ a { text-decoration: none; }
 	background: #FFB6B1;
 }
 
+.winner-txt {
+	font-size: 30px;
+	align-self: flex-end;
+}
+
 /* power-select */
 .ember-power-select-trigger {
 	padding: 5px;
