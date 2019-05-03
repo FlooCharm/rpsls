@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-const { Model, attr, belongsTo } = DS;
+const { Model, attr, belongsTo, hasMany } = DS;
 
 export default class GameModel extends Model {
 	@attr('string') code;
@@ -8,4 +8,5 @@ export default class GameModel extends Model {
 	@attr('string') winnerName;
 
 	@belongsTo('user') winner;
+	@hasMany('play') plays;
 }

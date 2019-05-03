@@ -7,8 +7,10 @@ export default class GameDetailController extends Controller {
 
 	@action
 	selectMove (choice) {
-		let play = this.model.plays.findBy('id', this.selectedUser.user.id);
-		console.log(play)
+		let id = this.selectedUser.user.id;
+		let play = this.get('model.plays').findBy('userId', id);
+		play.set('choice', choice);
+		play.save();
 		this._poll = setInterval(() => {
 			
 		}, 5000);
