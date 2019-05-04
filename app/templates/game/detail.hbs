@@ -51,43 +51,54 @@
 				/>
 			</div>
 		</div>
-		{{#if (eq this.model.game.status 3)}}
-			SOMEONE WON!!!!
-		{{/if}}
-		<button class="btn secondary-font body white-text" {{action 'startGame'}}>Start Game</button>
+		<div class="margin-top">
+			{{#if (eq this.model.game.status 3)}}
+				SOMEONE WON!!!!
+			{{/if}}
+			{{#if (eq this.model.game.status 1)}}
+				<button class="btn secondary-font body white-text" {{action 'startGame'}}>Start Game</button>
+			{{/if}}
+		</div>
 	</div>
 	<div class="flex flex05 column justify-center align-center padded">
 		<div class="flex column">
-			<Icon 
-				@name='hand-rock'
-				@size='4x'
-				@color='black'
-				@prefix='far'
-			/>
-			<Icon 
-				@name='hand-paper'
-				@size='4x'
-				@color='black'
-				@prefix='far'
-			/>
-			<Icon 
-				@name='hand-scissors'
-				@size='4x'
-				@color='black'
-				@prefix='far'
-			/>
-			<Icon 
-				@name='hand-lizard'
-				@size='4x'
-				@color='black'
-				@prefix='far'
-			/>
-			<Icon 
-				@name='hand-spock'
-				@size='4x'
-				@color='black'
-				@prefix='far'
-			/>
+			{{#if (eq this.model.game.totalUsers 2)}}
+				<Icon 
+					@name='hand-rock'
+					@size='4x'
+					@color='black'
+					@prefix='far'
+				/>
+				<Icon 
+					@name='hand-paper'
+					@size='4x'
+					@color='black'
+					@prefix='far'
+				/>
+				<Icon 
+					@name='hand-scissors'
+					@size='4x'
+					@color='black'
+					@prefix='far'
+				/>
+				<Icon 
+					@name='hand-lizard'
+					@size='4x'
+					@color='black'
+					@prefix='far'
+				/>
+				<Icon 
+					@name='hand-spock'
+					@size='4x'
+					@color='black'
+					@prefix='far'
+				/>
+			{{else}}
+				<div class="loader"></div>
+				<div class="main-font body">
+					Waiting for Player...
+				</div>
+			{{/if}}
 		</div>
 	</div>
 </div>

@@ -18,7 +18,7 @@ export default class GameDetailController extends Controller {
 
 	@action 
 	startGame () {
-		if (this.model.game.total_users === 2)
+		if (this.model.game.totalUsers === 2)
 			this.model.game.startGame();
 	}
 }
