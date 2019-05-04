@@ -15,6 +15,11 @@ a { text-decoration: none; }
 
 .clickable { cursor: pointer; }
 
+.user-select {
+	position: fixed;
+	top: 30px;
+}
+
 /* fonts */
 @font-face {
 	font-family: 'MarkerFelt';
@@ -81,6 +86,10 @@ a { text-decoration: none; }
 	background: #C4C4C4;
 	cursor: default;
 }
+.btn.small {
+	width: 200px;
+	height: 50px;
+}
 
 .float-btn {
 	position: fixed;
@@ -145,6 +154,11 @@ a { text-decoration: none; }
 }
 .ember-basic-dropdown-content, .ember-power-select-search-input {
 	font-family: 'NanumPen';
+	font-size: 20px;
+}
+
+.small .ember-power-select-trigger {
+	width: 250px;
 	font-size: 20px;
 }
 
