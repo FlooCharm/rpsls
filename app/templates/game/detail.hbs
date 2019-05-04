@@ -51,6 +51,9 @@
 				/>
 			</div>
 		</div>
+		{{#if (eq this.model.game.status 3)}}
+			SOMEONE WON!!!!
+		{{/if}}
 		<button class="btn secondary-font body white-text" {{action 'startGame'}}>Start Game</button>
 	</div>
 	<div class="flex flex05 column justify-center align-center padded">
