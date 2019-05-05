@@ -130,7 +130,11 @@
 </div>
 {{#if (eq this.model.game.status 3)}}
 	<div class="completed flex column align-center">
-		{{#if (eq this.model.game.winnerId this.selectedUser.user.id)}}
+		{{#if (not this.model.game.winnerId)}}
+			<div class="tie">
+				It's a Tie! :o
+			</div>
+		{{else if (eq this.model.game.winnerId this.selectedUser.user.id)}}
 			<div class="win">
 				Yay! You Won! :)
 			</div>

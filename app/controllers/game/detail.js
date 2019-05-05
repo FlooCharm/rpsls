@@ -6,6 +6,8 @@ import { inject as service } from '@ember/service';
 export default class GameDetailController extends Controller {
 	@service selectedUser;
 
+	@tracked isLoading;
+
 	@computed('model.plays.[]')
 	get moves () {
 		let moves = {};
@@ -19,19 +21,28 @@ export default class GameDetailController extends Controller {
 	}
 
 	@action
-	selectMove (choice) {
+	async selectMove (choice) {
 		if (this.model.game.status === 2) {
 			let id = this.selectedUser.user.id;
+			let newPlays = this.model.plays.map(item => {
+				if (item.userId === this.selectedUser.user.id)
+					item.set('choice', choice);
+				return item
+			});
+			this.set('model.plays', newPlays);
 			let play = this.get('model.plays').findBy('userId', id);
 			play.set('choice', choice);
-			play.save();
+			let updatedPlay = await play.save();
 		}
 	}
 
 	@action 
-	startGame () {
+	async startGame () {
+		this.isLoading = false;
 		if (this.model.game.totalUsers === 2) {
-			this.model.game.startGame();
+			let game = await this.model.game.startGame();
+			this.set('model.game', game);
+			this.isLoading = true;
 		}
 	}
 }

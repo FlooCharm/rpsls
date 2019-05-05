@@ -217,6 +217,10 @@ a { text-decoration: none; }
 	color: #ed0707;
 }
 
+.completed .tie {
+	color: #f9ae16;
+}
+
 
 /* Loader */
 .loader,
