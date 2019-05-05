@@ -31,26 +31,34 @@ export default class GameIndexController extends Controller {
 
 	@action
 	async enterGame (game) {
-		let id = this.selectedUser.user.id;
-		let plays = await this.store.query('play', {
-			game_id: game.id
-		})
-		let userPlay = plays.findBy('userId', id)
-		if(!userPlay) {
-			await this.store.createRecord('play', {
-				game,
-				user: this.selectedUser.user
-			}).save().then(() => {
+		if (this.selectedUser.user) {
+			let id = this.selectedUser.user.id;
+			let plays = await this.store.query('play', {
+				game_id: game.id
+			})
+			let userPlay = plays.findBy('userId', id)
+			if(!userPlay) {
+				await this.store.createRecord('play', {
+					game,
+					user: this.selectedUser.user
+				}).save().then(() => {
+					this.transitionToRoute('game.detail', game.id);
+				}).catch(() => {
+					Swal.fire({
+						imageUrl: 'https://img2.thejournal.ie/inline/1035578/original/?width=500&version=1035578',
+						imageWidth: 250,
+						imageHeight: 175,
+					})
+				});
+			} else {
 				this.transitionToRoute('game.detail', game.id);
-			}).catch(() => {
-				Swal.fire({
-					imageUrl: 'https://img2.thejournal.ie/inline/1035578/original/?width=500&version=1035578',
-					imageWidth: 250,
-					imageHeight: 175,
-				})
-			});
+			}
 		} else {
-			this.transitionToRoute('game.detail', game.id);
+			Swal.fire({
+				imageUrl: 'https://img2.thejournal.ie/inline/1035578/original/?width=500&version=1035578',
+				imageWidth: 250,
+				imageHeight: 175,
+			})
 		}
 	}
 
