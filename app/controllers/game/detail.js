@@ -6,8 +6,6 @@ import { inject as service } from '@ember/service';
 export default class GameDetailController extends Controller {
 	@service selectedUser;
 
-	@tracked isLoading;
-
 	@computed('model.plays.[]')
 	get moves () {
 		let moves = {};
@@ -31,11 +29,9 @@ export default class GameDetailController extends Controller {
 	}
 
 	@action 
-	async startGame () {
-		this.isLoading = true;
+	startGame () {
 		if (this.model.game.totalUsers === 2) {
-			await this.model.game.startGame();
-			this.isLoading = false;
+			this.model.game.startGame();
 		}
 	}
 }

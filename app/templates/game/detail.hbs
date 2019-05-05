@@ -71,7 +71,7 @@
 		</div>
 	</div>
 	<div class="flex flex05 column justify-center align-center padded">
-		<div class="flex column">
+		<div class="flex column align-center">
 			{{#if (and this.moves.opponentMove this.moves.userMove)}}
 				<div class="title">
 					<Icon
@@ -83,14 +83,6 @@
 				</div>
 			{{else}}
 				{{#if (eq this.model.game.totalUsers 2)}}
-					{{!-- {{#if (and this.moves.opponentMove this.moves.userMove)}}
-						<div class="flex row">
-							<div class="loader"></div>
-							<div class="main-font body">
-								Opponent is playing...
-							</div>
-						</div>
-					{{/if}} --}}
 					<Icon 
 						@name='hand-rock'
 						@size='4x'
@@ -121,6 +113,11 @@
 						@color='black'
 						@prefix='far'
 					/>
+					{{#if (and (eq this.model.game.status 2) (not (and this.moves.opponentMove this.moves.userMove)))}}
+						<div class="main-font small-text margin-top">
+							Opponent is playing...
+						</div>
+					{{/if}}
 				{{else}}
 					<div class="loader"></div>
 					<div class="main-font body">
