@@ -1,8 +1,16 @@
 import Route from '@ember/routing/route';
 import { action } from '@ember/object';
 import { hash } from 'rsvp';
+import { inject as service } from '@ember/service';
 
 export default class GameDetailRoute extends Route {
+	@service selectedUser;
+
+	beforeModel () {
+		if (!this.selectedUser.user)
+			this.transitionTo('game.index');
+	}
+
 	model (params) {
 		this.gameId = params.id;
 		return hash({
