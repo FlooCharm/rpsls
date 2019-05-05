@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import Swal from 'sweetalert2';
 
 export default class GameIndexController extends Controller {
 	@service selectedUser;
@@ -39,9 +40,18 @@ export default class GameIndexController extends Controller {
 			await this.store.createRecord('play', {
 				game,
 				user: this.selectedUser.user
-			}).save();
+			}).save().then(() => {
+				this.transitionToRoute('game.detail', game.id);
+			}).catch(() => {
+				Swal.fire({
+					imageUrl: 'https://img2.thejournal.ie/inline/1035578/original/?width=500&version=1035578',
+					imageWidth: 250,
+					imageHeight: 175,
+				})
+			});
+		} else {
+			this.transitionToRoute('game.detail', game.id);
 		}
-		this.transitionToRoute('game.detail', game.id);
 	}
 
 	@action
