@@ -6,7 +6,7 @@ import { inject as service } from '@ember/service';
 export default class GameIndexController extends Controller {
 	@service selectedUser;
 	@tracked showModal;
-	@tracked user;
+	@tracked user = this.selectedUser.user;
 
 	get hasMinimumData () {
 		return this.user;
