@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import Swal from 'sweetalert2';
 
 export default class GameIndexController extends Controller {
 	@service selectedUser;
@@ -30,18 +31,35 @@ export default class GameIndexController extends Controller {
 
 	@action
 	async enterGame (game) {
-		let id = this.selectedUser.user.id;
-		let plays = await this.store.query('play', {
-			game_id: game.id
-		})
-		let userPlay = plays.findBy('userId', id)
-		if(!userPlay) {
-			await this.store.createRecord('play', {
-				game,
-				user: this.selectedUser.user
-			}).save();
+		if (this.selectedUser.user) {
+			let id = this.selectedUser.user.id;
+			let plays = await this.store.query('play', {
+				game_id: game.id
+			})
+			let userPlay = plays.findBy('userId', id)
+			if(!userPlay) {
+				await this.store.createRecord('play', {
+					game,
+					user: this.selectedUser.user
+				}).save().then(() => {
+					this.transitionToRoute('game.detail', game.id);
+				}).catch(() => {
+					Swal.fire({
+						imageUrl: 'https://img2.thejournal.ie/inline/1035578/original/?width=500&version=1035578',
+						imageWidth: 250,
+						imageHeight: 175,
+					})
+				});
+			} else {
+				this.transitionToRoute('game.detail', game.id);
+			}
+		} else {
+			Swal.fire({
+				imageUrl: 'https://img2.thejournal.ie/inline/1035578/original/?width=500&version=1035578',
+				imageWidth: 250,
+				imageHeight: 175,
+			})
 		}
-		this.transitionToRoute('game.detail', game.id);
 	}
 
 	@action

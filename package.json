@@ -58,6 +58,7 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
-    "pluralize": "^7.0.0"
+    "pluralize": "^7.0.0",
+    "sweetalert2": "^8.10.0"
   }
 }
