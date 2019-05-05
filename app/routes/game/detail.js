@@ -9,7 +9,7 @@ export default class GameDetailRoute extends Route {
 			game: this.store.findRecord('game', params.id),
 			plays: this.store.query('play', {
 				game_id: params.id
-			})
+			}),
 		})
 	}
 
@@ -23,8 +23,8 @@ export default class GameDetailRoute extends Route {
 		this._poll = setInterval(async () => {
 			let game = await this.store.findRecord('game', this.gameId);
 			let plays = await this.store.query('play', { game_id: this.gameId });
-			this.set('model.game', game);
-			this.set('model.plays', plays);
-		}, 5000);
+			this.set('controller.model.game', game);
+			this.set('controller.model.plays', plays);
+		}, 1500);
 	}
 }

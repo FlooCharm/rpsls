@@ -10,53 +10,64 @@
 <div class="flex row full-height">
 	<div class="flex flex05 column justify-center align-center padded gray-light-bg">
 		<div class="flex column">
-			<div class="clickable" {{action 'selectMove' 1}}>
-				<Icon
-					@name='hand-rock'
-					@size='4x'
-					@color='black'
-					@prefix='far'
-				/>
-			</div>
-			<div class="clickable" {{action 'selectMove' 2}}>
-				<Icon
-					@name='hand-paper'
-					@size='4x'
-					@color='black'
-					@prefix='far'
-				/>
-			</div>
-			<div class="clickable" {{action 'selectMove' 3}}>
-				<Icon
-					@name='hand-scissors'
-					@size='4x'
-					@color='black'
-					@prefix='far'
-				/>
-			</div>
-			<div class="clickable" {{action 'selectMove' 4}}>
-				<Icon
-					@name='hand-lizard'
-					@size='4x'
-					@color='black'
-					@prefix='far'
-				/>
-			</div>
-			<div class="clickable" {{action 'selectMove' 5}}>
-				<Icon
-					@name='hand-spock'
-					@size='4x'
-					@color='black'
-					@prefix='far'
-				/>
-			</div>
+			{{#if this.moves.userMove}}
+				<div class="title">
+					<Icon
+						@name={{this.moves.userMove}}
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
+				</div>
+			{{else}}
+				<div class="clickable small-margin-bottom {{if (eq this.model.game.status 2) 'bigger-on-hover'}}" {{action 'selectMove' 1}}>
+					<Icon
+						@name='hand-rock'
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
+				</div>
+				<div class="clickable small-margin-bottom {{if (eq this.model.game.status 2) 'bigger-on-hover'}}" {{action 'selectMove' 2}}>
+					<Icon
+						@name='hand-paper'
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
+				</div>
+				<div class="clickable small-margin-bottom {{if (eq this.model.game.status 2) 'bigger-on-hover'}}" {{action 'selectMove' 3}}>
+					<Icon
+						@name='hand-scissors'
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
+				</div>
+				<div class="clickable small-margin-bottom {{if (eq this.model.game.status 2) 'bigger-on-hover'}}" {{action 'selectMove' 4}}>
+					<Icon
+						@name='hand-lizard'
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
+				</div>
+				<div class="clickable small-margin-bottom {{if (eq this.model.game.status 2) 'bigger-on-hover'}}" {{action 'selectMove' 5}}>
+					<Icon
+						@name='hand-spock'
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
+				</div>
+			{{/if}}
 		</div>
 		<div class="margin-top">
 			{{#if (eq this.model.game.status 3)}}
 				SOMEONE WON!!!!
 			{{/if}}
 			{{#if (eq this.model.game.status 1)}}
-				<button class="btn secondary-font body white-text" {{action 'startGame'}}>Start Game</button>
+				<button class="btn secondary-font body white-text" disabled={{eq this.model.game.totalUsers 1}} {{action 'startGame'}}>Start Game</button>
 			{{/if}}
 		</div>
 	</div>
