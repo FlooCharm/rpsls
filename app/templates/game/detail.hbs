@@ -9,7 +9,7 @@
 {{/link-to}}
 <div class="flex row full-height">
 	<div class="flex flex05 column justify-center align-center padded gray-light-bg">
-		<div class="flex column">
+		<div class="flex column align-center">
 			{{#if this.moves.userMove}}
 				<div class="title">
 					<Icon
@@ -63,53 +63,85 @@
 			{{/if}}
 		</div>
 		<div class="margin-top">
-			{{#if (eq this.model.game.status 3)}}
-				SOMEONE WON!!!!
-			{{/if}}
 			{{#if (eq this.model.game.status 1)}}
-				<button class="btn secondary-font body white-text" disabled={{eq this.model.game.totalUsers 1}} {{action 'startGame'}}>Start Game</button>
+				<button class="btn secondary-font body white-text" disabled={{or (eq this.model.game.totalUsers 1) this.isLoading}} {{action 'startGame'}}>
+					{{if this.isLoading 'Starting Game...' 'Start Game'}}
+				</button>
 			{{/if}}
 		</div>
 	</div>
 	<div class="flex flex05 column justify-center align-center padded">
 		<div class="flex column">
-			{{#if (eq this.model.game.totalUsers 2)}}
-				<Icon 
-					@name='hand-rock'
-					@size='4x'
-					@color='black'
-					@prefix='far'
-				/>
-				<Icon 
-					@name='hand-paper'
-					@size='4x'
-					@color='black'
-					@prefix='far'
-				/>
-				<Icon 
-					@name='hand-scissors'
-					@size='4x'
-					@color='black'
-					@prefix='far'
-				/>
-				<Icon 
-					@name='hand-lizard'
-					@size='4x'
-					@color='black'
-					@prefix='far'
-				/>
-				<Icon 
-					@name='hand-spock'
-					@size='4x'
-					@color='black'
-					@prefix='far'
-				/>
-			{{else}}
-				<div class="loader"></div>
-				<div class="main-font body">
-					Waiting for Player...
+			{{#if (and this.moves.opponentMove this.moves.userMove)}}
+				<div class="title">
+					<Icon
+						@name={{this.moves.opponentMove}}
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
 				</div>
+			{{else}}
+				{{#if (eq this.model.game.totalUsers 2)}}
+					{{!-- {{#if (and this.moves.opponentMove this.moves.userMove)}}
+						<div class="flex row">
+							<div class="loader"></div>
+							<div class="main-font body">
+								Opponent is playing...
+							</div>
+						</div>
+					{{/if}} --}}
+					<Icon 
+						@name='hand-rock'
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
+					<Icon 
+						@name='hand-paper'
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
+					<Icon 
+						@name='hand-scissors'
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
+					<Icon 
+						@name='hand-lizard'
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
+					<Icon 
+						@name='hand-spock'
+						@size='4x'
+						@color='black'
+						@prefix='far'
+					/>
+				{{else}}
+					<div class="loader"></div>
+					<div class="main-font body">
+						Waiting for Player...
+					</div>
+				{{/if}}
 			{{/if}}
 		</div>
 	</div>
 </div>
+{{#if (eq this.model.game.status 3)}}
+	<div class="completed flex column align-center">
+		{{#if (eq this.model.game.winnerId this.selectedUser.user.id)}}
+			<div class="win">
+				Yay! You Won! :)
+			</div>
+		{{else}}
+			<div class="lose">
+				You lose :( 
+			</div>
+		{{/if}}
+		<LinkTo class="btn secondary-font body white-text centered margin-top" @route="game">Main Menu</LinkTo>
+	</div>
+{{/if}}

@@ -7,6 +7,7 @@ export default class GameModel extends Model {
 	@attr('number') status;
 	@attr('number') totalUsers;
 	@attr('string') winnerName;
+	@attr('string') winnerId;
 
 	@belongsTo('user') winner;
 	@hasMany('play') plays;

@@ -57,6 +57,11 @@ a { text-decoration: none; }
 .row { flex-direction: row; }
 .justify-center { justify-content: center; }
 .align-center { align-items: center; }
+.centered { 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 /* padding */
 .padded { padding: 30px; }
@@ -191,7 +196,26 @@ a { text-decoration: none; }
 	background: rgba(0, 0, 0, 0.4);
 }
 
-/* Spinner */
+/* Completed Status */
+
+.completed {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	left: 50%;
+	bottom: 30%;
+	transform: translateX(-50%);
+	font-family: 'MarkerFelt';
+	font-size: 50px;
+}
+.completed .win {
+	color: #1dc436;
+}
+.completed .lose {
+	color: #ed0707;
+}
+
+/* Loader */
 .loader,
 .loader:before,
 .loader:after {
