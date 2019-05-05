@@ -31,8 +31,10 @@ export default class GameDetailRoute extends Route {
 		this._poll = setInterval(async () => {
 			let game = await this.store.findRecord('game', this.gameId);
 			let plays = await this.store.query('play', { game_id: this.gameId });
+			if (game.status === 2)
+				this.controller.isLoading = false;
 			this.set('controller.model.game', game);
 			this.set('controller.model.plays', plays);
-		}, 1500);
+		}, 1000);
 	}
 }

@@ -37,12 +37,10 @@ export default class GameDetailController extends Controller {
 	}
 
 	@action 
-	async startGame () {
-		this.isLoading = false;
+	startGame () {
+		this.isLoading = true;
 		if (this.model.game.totalUsers === 2) {
-			let game = await this.model.game.startGame();
-			this.set('model.game', game);
-			this.isLoading = true;
+			this.model.game.startGame();
 		}
 	}
 }
