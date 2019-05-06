@@ -19,8 +19,8 @@ export default class GameIndexController extends Controller {
 	onSearch (search) {
 		this.search = search;
 		let filteredGames = this.model.games.filter(item => {
-	    	item = item.code.toLowerCase();
-	    	return item.indexOf(search) > -1; 
+	    	let code = item.code;
+	    	return code.indexOf(search) > -1; 
 	  	});
 	  	this.filteredGames = filteredGames;
 	}
