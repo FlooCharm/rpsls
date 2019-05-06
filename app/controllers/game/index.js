@@ -9,6 +9,7 @@ export default class GameIndexController extends Controller {
 	@tracked showModal;
 	@tracked user = this.selectedUser.user;
 	@tracked search = '';
+	@tracked filteredGames = this.model.games;
 
 	get hasMinimumData () {
 		return this.user;
@@ -17,7 +18,11 @@ export default class GameIndexController extends Controller {
 	@action
 	onSearch (search) {
 		this.search = search;
-		
+		let filteredGames = this.model.games.filter(item => {
+	    	item = item.code.toLowerCase();
+	    	return item.indexOf(search) > -1; 
+	  	});
+	  	this.filteredGames = filteredGames;
 	}
 
 	@action

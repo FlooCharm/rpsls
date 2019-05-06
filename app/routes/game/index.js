@@ -20,5 +20,6 @@ export default class GameIndexRoute extends Route {
 	@action
 	willTransition () {
 		clearInterval(this._poll);
+		this.controller.search = '';
 	}
 }

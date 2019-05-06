@@ -40,11 +40,15 @@
 			</div>
 		</div>
 		<div class="game-list">
-			{{#each this.model.games as |game|}}
-				<GameCard 
-					@game={{game}}
-					@enterGame={{action 'enterGame'}}
-				/>
+			{{#each (if this.search this.filteredGames this.model.games) as |game|}}
+					<GameCard 
+						@game={{game}}
+						@enterGame={{action 'enterGame'}}
+					/>
+			{{else}}
+				<div class="flex full-width justify-center main-font body big-margin-top">
+					No matches found :(
+				</div>
 			{{/each}}
 		</div>
 	</div>
