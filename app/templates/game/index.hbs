@@ -16,7 +16,29 @@
 		<button class="btn secondary-font body white-text" {{action 'createGame'}} disabled={{not this.hasMinimumData}}>create game</button>
 	</div>
 	<div class="flex flex05 column">
-		<span class="main-font subtitle padded">Games</span>
+		<div class="margin-top padding-right">
+			<div class="flex justify-space-between full-width align-center">
+				<div class="main-font subtitle padded">Games</div>
+				<div class="input-field-container">
+					<input 
+						class="input-field main-font" 
+						placeholder="Search Game..." 
+						value={{this.search}} 
+						oninput={{action this.onSearch value="target.value"}}
+					>
+					{{#if this.search}}
+						<div class="close-icon" {{action this.onSearch ''}}>
+							<Icon
+								@name='times'
+								@size='2x'
+								@color='black'
+								@prefix='fa'
+							/>
+						</div>
+					{{/if}}
+				</div>
+			</div>
+		</div>
 		<div class="game-list">
 			{{#each this.model.games as |game|}}
 				<GameCard 

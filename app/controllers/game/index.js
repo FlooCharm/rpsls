@@ -8,9 +8,16 @@ export default class GameIndexController extends Controller {
 	@service selectedUser;
 	@tracked showModal;
 	@tracked user = this.selectedUser.user;
+	@tracked search = '';
 
 	get hasMinimumData () {
 		return this.user;
+	}
+
+	@action
+	onSearch (search) {
+		this.search = search;
+		
 	}
 
 	@action
